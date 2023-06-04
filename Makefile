@@ -1,7 +1,9 @@
 .DEFAULT_GOAL := help
+SHELL = /bin/sh
 
 MAKE_PARAMS := $(filter-out $@,$(MAKECMDGOALS))
 FILE_PATH := $(word 2,$(MAKE_PARAMS))
+CURRENT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 .PHONY: help
 help: ## This help menu
